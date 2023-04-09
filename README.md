@@ -8,9 +8,13 @@ With data used from there mock json https://raw.githubusercontent.com/weaviate-t
 
 I did add user input for searching the vector database for Word Similarity instead of just searching for biology 
 
+# Code Description (just a first exploration so I didnt functionalize too much)
+
+## Heavy Lifter
+
 go.js=> Takes the input for Similar concepts and then parses the Vector Database to return most similar items in that specific Vector class.
 
-Stuff similar to the Tutorial:
+## Stuff similar to the Tutorial:
 
 index.js=> instantiates the client and creates a First Vector DataBase with className Biology
 
