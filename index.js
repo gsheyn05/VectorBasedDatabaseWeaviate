@@ -1,5 +1,7 @@
 import weaviate from 'weaviate-ts-client';
 import * as dotenv from 'dotenv' 
+
+//Create your first vector class here
 dotenv.config()
 
 const client= weaviate.client({

@@ -2,6 +2,7 @@ import weaviate from 'weaviate-ts-client';
 import * as dotenv from 'dotenv' 
 dotenv.config()
 
+//Import data into the vector class you initiated
 const client = weaviate.client({
     scheme: 'https',
       host: `${process.env.WEVIATE_HOST_URL}`,  // Replace with your endpoint
@@ -25,7 +26,7 @@ async function importQuestions() {
     data.forEach(question => {
       // Construct an object with a class and properties 'answer' and 'question'
       const obj = {
-        class: 'Question',
+        class: 'Question', //Replace this with the class you previously created in index.js
         properties: {
           answer: question.Answer,
           question: question.Question,
