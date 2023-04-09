@@ -12,7 +12,7 @@ I did add user input for searching the vector database for Word Similarity inste
 
 ## Heavy Lifter
 
-go.js=> Takes the input for Similar concepts and then parses the Vector Database to return most similar items in that specific Vector class.
+==go.js== => Takes the input for Similar concepts and then parses the Vector Database to return most similar items in that specific Vector class.
 
 ## Stuff similar to the Tutorial:
 
