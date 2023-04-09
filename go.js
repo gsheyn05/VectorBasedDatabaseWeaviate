@@ -1,7 +1,11 @@
 import weaviate from 'weaviate-ts-client';
 
 import * as dotenv from 'dotenv' 
+
+import * as readline from 'readline';
+
 dotenv.config()
+
 
 const client = weaviate.client({
   scheme: 'https',
@@ -10,13 +14,30 @@ const client = weaviate.client({
 
 });
 
-const Search = () => {
+function AskQuery(query) {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    
 
+    return  new Promise(resolve => rl.question(query, ans => {
+        rl.close();
+        resolve(ans);
+      }))
+
+
+    
+}
+async function search() {
+    var topic = await AskQuery("What concept are you searching in the databse? \n")
+   
+    
     client.graphql
         .get()
         .withClassName('Question')
         .withFields('question answer category')
-        .withNearText({ concepts: ['biology'] })
+        .withNearText({ concepts: [`${topic}`] })
         .withLimit(2)
         .do()
         .then(res => {
@@ -25,4 +46,7 @@ const Search = () => {
         .catch(err => {
             console.error(err)
         });
+    
 }
+
+search()
