@@ -5,7 +5,7 @@ dotenv.config()
 const client = weaviate.client({
     scheme: 'https',
       host: `${process.env.WEVIATE_HOST_URL}`,  // Replace with your endpoint
-      headers: {'X-Cohere-Api-Key': `${COHESION_API_KEY}`},  // Replace with your API key
+      headers: {'X-Cohere-Api-Key': `${process.env.COHESION_API_KEY}`},  // Replace with your API key
   
   });
 async function getJsonData() { //gets the json data and converts it into json
